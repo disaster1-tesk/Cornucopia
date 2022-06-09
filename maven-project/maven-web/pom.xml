@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.disaster</groupId>
+  <artifactId>maven-web</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>maven-web Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+  <description>this is a testing project</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <developers>
+    <developer>
+      <id>disaster</id>
+      <name>wei wang</name>
+      <email>2272317764@qq.com</email>
+      <roles>
+        <role>
+          manager
+        </role>
+      </roles>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+      <!--项目报告插件的设置-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.0.0</version>
+        <reportSets>
+          <!--选择需要生成的信息报告-->
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.2.0</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+
+
+  <profiles>
+    <!--profile的几种激活方式：1，mvn clean install -P{profileId}
+                            2.settings.xml文件显示激活-activeProfiles标签
+                            3.mvn clean install -D{系统属性}={值}
+                            4.操作系统环境激活
+                            5.文件存在是否激活
+                            6.默认激活
+                            -->
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <db.driver>com.disaster.App</db.driver>
+        <db.url>http://localhost:3306</db.url>
+        <db.username>dev</db.username>
+        <db.password>dev</db.password>
+      </properties>
+    </profile>
+    <profile>
+      <id>test</id>
+      <activation>
+        <property>
+          <name>test</name>
+          <value>test</value>
+        </property>
+      </activation>
+      <properties>
+        <db.driver>com.disaster.App</db.driver>
+        <db.url>http://localhost:3306</db.url>
+        <db.username>test</db.username>
+        <db.password>test</db.password>
+      </properties>
+    </profile>
+    <profile>
+      <id>OS</id>
+      <activation>
+        <os>
+          <name>windows</name>
+          <version>10</version>
+          <family>Windows</family>
+          <arch>x86</arch>
+        </os>
+      </activation>
+      <properties>
+        <db.driver>com.disaster.App</db.driver>
+        <db.url>http://localhost:3306</db.url>
+        <db.username>OS</db.username>
+        <db.password>OS</db.password>
+      </properties>
+    </profile>
+    <profile>
+      <id>file</id>
+      <activation>
+        <file>
+          <exists>${basedir}/src/main/java/main.java</exists>
+        </file>
+      </activation>
+      <properties>
+        <db.driver>com.disaster.App</db.driver>
+        <db.url>http://localhost:3306</db.url>
+        <db.username>file</db.username>
+        <db.password>file</db.password>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>${project.basedir}/src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+    <finalName>maven-web</finalName>
+    <plugins>
+      <!--jetty通过设置scanIntervalSeconds参数达到热部署的功能-->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.3.14.v20161028</version>
+        <configuration>
+          <scanIntervalSeconds>10</scanIntervalSeconds>
+          <webApp>
+            <contextPath>/myProName</contextPath>
+          </webApp>
+          <httpConnector>
+            <port>8888</port>
+          </httpConnector>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <path>/</path>
+          <port>80</port>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.2.3</version>
+        <configuration>
+          <container>
+            <containerId>tomcat7x</containerId>
+            <home>D:\tomcat\apache-tomcat-9.0.27</home>
+          </container>
+          <configuration>
+            <type>standalone</type>
+            <home>${project.build.directory}/tomcat6x</home>
+            <properties>
+              <!--  更改端口号，可以省去此配置：-->
+              <cargo.servlet.port>8001</cargo.servlet.port>
+            </properties>
+          </configuration>
+        </configuration>
+        <!--<executions>
+          <execution>
+            <id>cargo-run</id>
+            <phase>install</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>-->
+      </plugin>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.7.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
