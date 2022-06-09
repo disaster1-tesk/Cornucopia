@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="maven-project" />
+        <module name="java-core-project" />
+        <module name="mysql-project" />
+        <module name="linux-project" />
+        <module name="jvm-project" />
+        <module name="DesignPatterns-project" />
+        <module name="redis-project" />
+        <module name="effective J" />
+        <module name="DatabaseStructureAndAlgorithm-project" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Cornucopia" target="1.8" />
+      <module name="DatabaseStructureAndAlgorithm-project" target="1.8" />
+      <module name="DesignPatterns-project" target="1.8" />
+      <module name="effective J" target="1.8" />
+      <module name="java-core-project" target="1.8" />
+      <module name="jvm-project" target="1.8" />
+      <module name="linux-project" target="1.8" />
+      <module name="maven-project" target="1.8" />
+      <module name="mysql-project" target="1.8" />
+      <module name="redis-project" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

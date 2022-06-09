@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="effective J:war">
+    <output-path>$PROJECT_DIR$/effective J/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>effective J</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="effective Java-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="effective J:war exploded" />
+    </root>
+  </artifact>
+</component>

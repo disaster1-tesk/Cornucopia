@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Cornucopia.iml" filepath="$PROJECT_DIR$/Cornucopia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DatabaseStructureAndAlgorithm-project/DatabaseStructureAndAlgorithm-project.iml" filepath="$PROJECT_DIR$/DatabaseStructureAndAlgorithm-project/DatabaseStructureAndAlgorithm-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DesignPatterns-project/DesignPatterns-project.iml" filepath="$PROJECT_DIR$/DesignPatterns-project/DesignPatterns-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective J/effective J.iml" filepath="$PROJECT_DIR$/effective J/effective J.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-core-project/java-core-project.iml" filepath="$PROJECT_DIR$/java-core-project/java-core-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jvm-project/jvm-project.iml" filepath="$PROJECT_DIR$/jvm-project/jvm-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/linux-project/linux-project.iml" filepath="$PROJECT_DIR$/linux-project/linux-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven-project/maven-project.iml" filepath="$PROJECT_DIR$/maven-project/maven-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mysql-project/mysql-project.iml" filepath="$PROJECT_DIR$/mysql-project/mysql-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-project/redis-project.iml" filepath="$PROJECT_DIR$/redis-project/redis-project.iml" />
+    </modules>
+  </component>
+</project>
