@@ -8,7 +8,8 @@ comment VARCHAR(100),
 year_publication YEAR,
 INDEX(year_publication)
 );
-
+  
+  
 
 # 修改sql_mode
 show VARIABLES LIKE 'sql_mode';
