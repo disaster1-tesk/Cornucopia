@@ -44,23 +44,23 @@
 
 1. 先通过git下载此项目到本地，能看到项目结构如下图：
 
-![image-20220609110348432](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220609110348432.png)
+![image-20220609110348432](https://gitee.com/d__isaster/cornucopia/raw/master/img/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.jpg)
 
 2.随意打开一个项目模块，如**DatabaseStructureAndAlgorithm-project**模块，其结构如下图：
 
-![image-20220609110525664](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220609110525664.png)
+![image-20220609110525664](https://gitee.com/d__isaster/cornucopia/raw/master/img/%E6%A8%A1%E5%9D%97%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.jpg)
 
 
 
 3.其中note中有对应知识模块的项目书籍的连接
 
-![image-20220609110613272](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220609110613272.png)
+![image-20220609110613272](https://gitee.com/d__isaster/cornucopia/raw/master/img/note%E6%96%87%E4%BB%B6.jpg)
 
 
 
 4.各位可根据自行需求进行下载相应的内容进行学习，如果想进行代码的练习，推荐您在项目中进行编写，然后进行分享，因为您的贡献能够让此项目更加完善
 
-![image-20220609111001167](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220609111001167.png)
+![image-20220609111001167](https://gitee.com/d__isaster/cornucopia/raw/master/img/%E4%BB%A3%E7%A0%81%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95.jpg)
 
 
 
