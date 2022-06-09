@@ -2,7 +2,7 @@
 
 # Mysql
 
-此文档包含了https://gitee.com/d__isaster/cornucopia-for-java项目中mysql-project模块中对应的书籍或者笔记。如果有小伙伴想分享自己的学习心得/书籍/笔记到这个项目当中，资源可通过网盘连接放到此文档下
+此文档包含了https://gitee.com/d__isaster/cornucopia-for-java  项目中mysql-project模块中对应的书籍或者笔记。如果有小伙伴想分享自己的学习心得/书籍/笔记到这个项目当中，资源可通过网盘连接放到此文档下
 
 （需要注意的是网盘连接要永久有效！！！！）
 
