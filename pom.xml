@@ -25,6 +25,7 @@
         <module>DesignPatterns-project</module>
         <module>java-core-project</module>
         <module>jvm-project</module>
+        <module>git-project</module>
     </modules>
 
 </project>
