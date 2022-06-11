@@ -27,7 +27,7 @@
 ------
 
 | Java编程思想第四版完整中文高清版 | 链接：https://pan.baidu.com/s/1R_bTDQVA4RRP7NP4s_aUAg?pwd=2rzn <br/>提取码：2rzn |
-| :------------------------------: | ------------------------------------------------------------ |
+| :------------------------------: | :----------------------------------------------------------: |
 | **Java核心技术 卷II （第8版）**  | **链接：https://pan.baidu.com/s/1UkywdofW0Gj8BHX3J8DzMg?pwd=5bdg <br/>提取码：5bdg** |
 |   **Java核心技术 卷I (第8版)**   | **链接：https://pan.baidu.com/s/1izSksgfmR8vfcYjCKszdFQ?pwd=rsyb <br/>提取码：rsyb** |
 |    **Java开发手册（嵩山版）**    | **链接：https://pan.baidu.com/s/1Al4hm7FAFUDIvAB-YjChDg?pwd=g8gq <br/>提取码：g8gq** |

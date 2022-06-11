@@ -27,7 +27,7 @@
 ------
 
 | 《剑指Offer》题目及代码 | 链接：https://pan.baidu.com/s/1Cp2oRZdQLF4GLoAm4VCqoA?pwd=52d4 <br/>提取码：52d4 |
-| :---------------------: | ------------------------------------------------------------ |
+| :---------------------: | :----------------------------------------------------------: |
 |    **编程珠玑高清**     | **链接：https://pan.baidu.com/s/15zMC_fYs4Nhk1wBmKzXLEw?pwd=8rns <br/>提取码：8rns** |
 |   **个人算法题分享**    | **链接：https://pan.baidu.com/s/1-PKBF96_iXXazrjAsZdjbA?pwd=btyk <br/>提取码：btyk** |
 
