@@ -34,7 +34,7 @@ public class Chapter02 {
 
         updateToken(conn, token, "username", "itemX");
         System.out.println("We just logged-in/updated token: " + token);
-        System.out.println("For user: 'username'");
+        System.out.println("For User: 'username'");
         System.out.println();
 
         System.out.println("What username do we get when we look-up that token?");

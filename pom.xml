@@ -20,13 +20,13 @@
         <module>redis-project</module>
         <module>mysql-project</module>
         <module>linux-project</module>
-        <module>effective J</module>
         <module>DatabaseStructureAndAlgorithm-project</module>
         <module>DesignPatterns-project</module>
         <module>java-core-project</module>
         <module>jvm-project</module>
         <module>git-project</module>
         <module>spring-projectt</module>
+        <module>effective-java-project</module>
     </modules>
 
 </project>

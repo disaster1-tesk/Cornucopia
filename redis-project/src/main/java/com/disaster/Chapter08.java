@@ -45,7 +45,7 @@ public class Chapter08 {
         assert createUser(conn, "TestUser", "Test User2") == -1;
 
         assert createStatus(conn, 1, "This is a new status message") == 1;
-        assert "1".equals(conn.hget("user:1", "posts"));
+        assert "1".equals(conn.hget("User:1", "posts"));
     }
 
     public void testFollowUnfollowUser(Jedis conn) {
@@ -59,10 +59,10 @@ public class Chapter08 {
         assert conn.zcard("followers:1") == 0;
         assert conn.zcard("following:1") == 1;
         assert conn.zcard("following:2") == 0;
-        assert "1".equals(conn.hget("user:1", "following"));
-        assert "0".equals(conn.hget("user:2", "following"));
-        assert "0".equals(conn.hget("user:1", "followers"));
-        assert "1".equals(conn.hget("user:2", "followers"));
+        assert "1".equals(conn.hget("User:1", "following"));
+        assert "0".equals(conn.hget("User:2", "following"));
+        assert "0".equals(conn.hget("User:1", "followers"));
+        assert "1".equals(conn.hget("User:2", "followers"));
 
         assert !unfollowUser(conn, 2, 1);
         assert unfollowUser(conn, 1, 2);
@@ -70,10 +70,10 @@ public class Chapter08 {
         assert conn.zcard("followers:1") == 0;
         assert conn.zcard("following:1") == 0;
         assert conn.zcard("following:2") == 0;
-        assert "0".equals(conn.hget("user:1", "following"));
-        assert "0".equals(conn.hget("user:2", "following"));
-        assert "0".equals(conn.hget("user:1", "followers"));
-        assert "0".equals(conn.hget("user:2", "followers"));
+        assert "0".equals(conn.hget("User:1", "following"));
+        assert "0".equals(conn.hget("User:2", "following"));
+        assert "0".equals(conn.hget("User:1", "followers"));
+        assert "0".equals(conn.hget("User:2", "followers"));
     }
 
     public void testSyndicateStatus(Jedis conn)
@@ -86,7 +86,7 @@ public class Chapter08 {
 
         assert followUser(conn, 1, 2);
         assert conn.zcard("followers:2") == 1;
-        assert "1".equals(conn.hget("user:1", "following"));
+        assert "1".equals(conn.hget("User:1", "following"));
         assert postStatus(conn, 2, "this is some message content") == 1;
         assert getStatusMessages(conn, 1).size() == 1;
 
@@ -194,7 +194,7 @@ public class Chapter08 {
 
     public long createUser(Jedis conn, String login, String name) {
         String llogin = login.toLowerCase();
-        String lock = acquireLockWithTimeout(conn, "user:" + llogin, 10, 1);
+        String lock = acquireLockWithTimeout(conn, "User:" + llogin, 10, 1);
         if (lock == null){
             return -1;
         }
@@ -203,7 +203,7 @@ public class Chapter08 {
             return -1;
         }
 
-        long id = conn.incr("user:id:");
+        long id = conn.incr("User:id:");
         Transaction trans = conn.multi();
         trans.hset("users:", llogin, String.valueOf(id));
         Map<String,String> values = new HashMap<String,String>();
@@ -214,9 +214,9 @@ public class Chapter08 {
         values.put("following", "0");
         values.put("posts", "0");
         values.put("signup", String.valueOf(System.currentTimeMillis()));
-        trans.hmset("user:" + id, values);
+        trans.hmset("User:" + id, values);
         trans.exec();
-        releaseLock(conn, "user:" + llogin, lock);
+        releaseLock(conn, "User:" + llogin, lock);
         return id;
     }
 
@@ -244,8 +244,8 @@ public class Chapter08 {
         Set<Tuple> statuses = (Set<Tuple>)response.get(response.size() - 1);
 
         trans = conn.multi();
-        trans.hset("user:" + uid, "following", String.valueOf(following));
-        trans.hset("user:" + otherUid, "followers", String.valueOf(followers));
+        trans.hset("User:" + uid, "following", String.valueOf(following));
+        trans.hset("User:" + otherUid, "followers", String.valueOf(followers));
         if (statuses.size() > 0) {
             for (Tuple status : statuses){
                 trans.zadd("home:" + uid, status.getScore(), status.getElement());
@@ -279,8 +279,8 @@ public class Chapter08 {
         Set<String> statuses = (Set<String>)response.get(response.size() - 1);
 
         trans = conn.multi();
-        trans.hset("user:" + uid, "following", String.valueOf(following));
-        trans.hset("user:" + otherUid, "followers", String.valueOf(followers));
+        trans.hset("User:" + uid, "following", String.valueOf(following));
+        trans.hset("User:" + otherUid, "followers", String.valueOf(followers));
         if (statuses.size() > 0){
             for (String status : statuses) {
                 trans.zrem("home:" + uid, status);
@@ -298,7 +298,7 @@ public class Chapter08 {
         Jedis conn, long uid, String message, Map<String,String> data)
     {
         Transaction trans = conn.multi();
-        trans.hget("user:" + uid, "login");
+        trans.hget("User:" + uid, "login");
         trans.incr("status:id:");
 
         List<Object> response = trans.exec();
@@ -320,7 +320,7 @@ public class Chapter08 {
 
         trans = conn.multi();
         trans.hmset("status:" + id, data);
-        trans.hincrBy("user:" + uid, "posts", 1);
+        trans.hincrBy("User:" + uid, "posts", 1);
         trans.exec();
         return id;
     }
@@ -394,7 +394,7 @@ public class Chapter08 {
             trans.del(key);
             trans.zrem("profile:" + uid, String.valueOf(statusId));
             trans.zrem("home:" + uid, String.valueOf(statusId));
-            trans.hincrBy("user:" + uid, "posts", -1);
+            trans.hincrBy("User:" + uid, "posts", -1);
             trans.exec();
 
             return true;

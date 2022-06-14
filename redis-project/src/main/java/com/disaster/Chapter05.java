@@ -164,7 +164,7 @@ public class Chapter05 {
 
     public void testIpLookup(Jedis conn) {
         System.out.println("\n----- testIpLookup -----");
-        String cwd = System.getProperty("user.dir");
+        String cwd = System.getProperty("User.dir");
         File blocks = new File(cwd + "/GeoLiteCity-Blocks.csv");
         File locations = new File(cwd + "/GeoLiteCity-Location.csv");
         if (!blocks.exists()){

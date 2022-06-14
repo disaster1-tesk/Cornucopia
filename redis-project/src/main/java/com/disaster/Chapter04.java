@@ -29,13 +29,13 @@ public class Chapter04 {
             System.out.println("\n----- testListItem -----");
         }
 
-        System.out.println("We need to set up just enough state so that a user can list an item");
+        System.out.println("We need to set up just enough state so that a User can list an item");
         String seller = "userX";
         String item = "itemX";
         conn.sadd("inventory:" + seller, item);
         Set<String> i = conn.smembers("inventory:" + seller);
 
-        System.out.println("The user's inventory has:");
+        System.out.println("The User's inventory has:");
         for (String member : i){
             System.out.println("  " + member);
         }
@@ -58,10 +58,10 @@ public class Chapter04 {
         System.out.println("\n----- testPurchaseItem -----");
         testListItem(conn, true);
 
-        System.out.println("We need to set up just enough state so a user can buy an item");
+        System.out.println("We need to set up just enough state so a User can buy an item");
         conn.hset("users:userY", "funds", "125");
         Map<String,String> r = conn.hgetAll("users:userY");
-        System.out.println("The user has some money:");
+        System.out.println("The User has some money:");
         for (Map.Entry<String,String> entry : r.entrySet()){
             System.out.println("  " + entry.getKey() + ": " + entry.getValue());
         }
@@ -175,7 +175,7 @@ public class Chapter04 {
                 long end = start + (duration * 1000);
                 while (System.currentTimeMillis() < end){
                     count++;
-                    method.invoke(this, conn, "token", "user", "item");
+                    method.invoke(this, conn, "token", "User", "item");
                 }
                 long delta = System.currentTimeMillis() - start;
                 System.out.println(

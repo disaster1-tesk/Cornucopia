@@ -36,14 +36,14 @@ public class Chapter06 {
 
     public void testAddUpdateContact(Jedis conn) {
         System.out.println("\n----- testAddUpdateContact -----");
-        conn.del("recent:user");
+        conn.del("recent:User");
 
         System.out.println("Let's add a few contacts...");
         for (int i = 0; i < 10; i++){
-            addUpdateContact(conn, "user", "contact-" + ((int)Math.floor(i / 3)) + '-' + i);
+            addUpdateContact(conn, "User", "contact-" + ((int)Math.floor(i / 3)) + '-' + i);
         }
         System.out.println("Current recently contacted contacts");
-        List<String> contacts = conn.lrange("recent:user", 0, -1);
+        List<String> contacts = conn.lrange("recent:User", 0, -1);
         for(String contact : contacts){
             System.out.println("  " + contact);
         }
@@ -51,8 +51,8 @@ public class Chapter06 {
         System.out.println();
 
         System.out.println("Let's pull one of the older ones up to the front");
-        addUpdateContact(conn, "user", "contact-1-4");
-        contacts = conn.lrange("recent:user", 0, 2);
+        addUpdateContact(conn, "User", "contact-1-4");
+        contacts = conn.lrange("recent:User", 0, 2);
         System.out.println("New top-3 contacts:");
         for(String contact : contacts){
             System.out.println("  " + contact);
@@ -61,8 +61,8 @@ public class Chapter06 {
         System.out.println();
 
         System.out.println("Let's remove a contact...");
-        removeContact(conn, "user", "contact-2-6");
-        contacts = conn.lrange("recent:user", 0, -1);
+        removeContact(conn, "User", "contact-2-6");
+        contacts = conn.lrange("recent:User", 0, -1);
         System.out.println("New contacts:");
         for(String contact : contacts){
             System.out.println("  " + contact);
@@ -71,8 +71,8 @@ public class Chapter06 {
         System.out.println();
 
         System.out.println("And let's finally autocomplete on ");
-        List<String> all = conn.lrange("recent:user", 0, -1);
-        contacts = fetchAutocompleteList(conn, "user", "c");
+        List<String> all = conn.lrange("recent:User", 0, -1);
+        contacts = fetchAutocompleteList(conn, "User", "c");
         assert all.equals(contacts);
         List<String> equiv = new ArrayList<String>();
         for (String contact : all){
@@ -80,11 +80,11 @@ public class Chapter06 {
                 equiv.add(contact);
             }
         }
-        contacts = fetchAutocompleteList(conn, "user", "contact-2-");
+        contacts = fetchAutocompleteList(conn, "User", "contact-2-");
         Collections.sort(equiv);
         Collections.sort(contacts);
         assert equiv.equals(contacts);
-        conn.del("recent:user");
+        conn.del("recent:User");
     }
 
     public void testAddressBookAutocomplete(Jedis conn) {

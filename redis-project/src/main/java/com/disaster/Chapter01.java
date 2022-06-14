@@ -57,7 +57,7 @@ public class Chapter01 {
         HashMap<String,String> articleData = new HashMap<String,String>();
         articleData.put("title", title);
         articleData.put("link", link);
-        articleData.put("user", user);
+        articleData.put("User", user);
         articleData.put("now", String.valueOf(now));
         articleData.put("votes", "1");
         conn.hmset(article, articleData);

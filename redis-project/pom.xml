@@ -14,14 +14,17 @@
     <name>redis-project</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
-
+    <properties>
+        <remote.host></remote.host>
+        <remote.password></remote.password>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
@@ -38,6 +41,58 @@
             <artifactId>gson</artifactId>
             <version>2.9.0</version>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+        </dependency>
+        <dependency>
+            <groupId>com.taobao.arthas</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.80-fix</version>
+        </dependency>
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+            <version>6.1.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <redis.url>127.0.0.1</redis.url>
+                <redis.port>6379</redis.port>
+                <redis.password></redis.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>remote</id>
+            <properties>
+                <redis.url>${remote.host}</redis.url>
+                <redis.port>6379</redis.port>
+                <redis.password>${remote.host}</redis.password>
+            </properties>
+        </profile>
+
+    </profiles>
 </project>
