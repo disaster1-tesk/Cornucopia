@@ -1,27 +1,21 @@
 package com.disaster.jedis;
 
 import com.alibaba.fastjson.JSON;
-import com.google.gson.JsonObject;
 import io.lettuce.core.RedisClient;
-import io.lettuce.core.api.StatefulRedisConnection;
-import org.json.JSONObject;
 import org.junit.Test;
-import org.junit.jupiter.api.DynamicTest;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.args.ExpiryOption;
 import redis.clients.jedis.args.GeoUnit;
 import redis.clients.jedis.params.GeoRadiusParam;
 import redis.clients.jedis.params.ScanParams;
 import redis.clients.jedis.params.SetParams;
 import redis.clients.jedis.resps.GeoRadiusResponse;
-import redis.clients.jedis.resps.ScanResult;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
 public class JedisDemo {
-    static Jedis jedis = RedisUtil.getJedis();
+    static Jedis jedis = JedisUtil.getJedis();
 
     public static void main(String[] args) throws InterruptedException {
         //strTest();
@@ -260,7 +254,7 @@ public class JedisDemo {
     }
 
     /**
-     * scan：大海捞针
+     * scan：大海捞针  scan 参数提供了三个参数，第一个是 cursor 整数值，第二个是 key 的正则模式，第三个是遍历的 limit hint
      *
      * @author disaster
      * @version 1.0

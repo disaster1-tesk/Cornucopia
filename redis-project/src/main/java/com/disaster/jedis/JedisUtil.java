@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class RedisUtil {
+public class JedisUtil {
     private static String url = null;
     private static Integer port = null;
     private static String password = null;

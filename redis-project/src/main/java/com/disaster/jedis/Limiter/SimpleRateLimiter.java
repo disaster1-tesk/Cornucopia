@@ -1,8 +1,7 @@
 package com.disaster.jedis.Limiter;
 
-import com.disaster.jedis.RedisUtil;
+import com.disaster.jedis.JedisUtil;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.Response;
 import redis.clients.jedis.Transaction;
 
@@ -30,7 +29,7 @@ public class SimpleRateLimiter {
         return count.get() <= maxCount;
     }
     public static void main(String[] args) {
-        SimpleRateLimiter limiter = new SimpleRateLimiter(RedisUtil.getJedis());
+        SimpleRateLimiter limiter = new SimpleRateLimiter(JedisUtil.getJedis());
         for(int i=0;i<20;i++) {
             System.out.println(limiter.isActionAllowed("disaster", "reply", 60, 5));
         }
