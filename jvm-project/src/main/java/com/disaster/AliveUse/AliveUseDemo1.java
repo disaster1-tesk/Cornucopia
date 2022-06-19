@@ -1,6 +1,7 @@
 package com.disaster.AliveUse;
 
-import org.testng.annotations.AfterTest;
+
+import org.junit.Test;
 
 import java.io.*;
 /*
@@ -12,10 +13,12 @@ public class AliveUseDemo1 {
         writeUser();
         readUser();
     }
+
     @Test
     public void test(){
         User.test();
     }
+
     public static void writeUser(){
         ObjectOutputStream oos = null;
         try {
