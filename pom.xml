@@ -27,6 +27,7 @@
         <module>git-project</module>
         <module>spring-projectt</module>
         <module>effective-java-project</module>
+        <module>nginx-project</module>
     </modules>
 
 </project>
