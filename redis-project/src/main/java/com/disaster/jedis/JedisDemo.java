@@ -4,10 +4,13 @@ import com.alibaba.fastjson.JSON;
 import io.lettuce.core.RedisClient;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.StreamEntryID;
+import redis.clients.jedis.args.FlushMode;
 import redis.clients.jedis.args.GeoUnit;
 import redis.clients.jedis.params.GeoRadiusParam;
 import redis.clients.jedis.params.ScanParams;
 import redis.clients.jedis.params.SetParams;
+import redis.clients.jedis.params.XAddParams;
 import redis.clients.jedis.resps.GeoRadiusResponse;
 
 import java.util.HashMap;
@@ -274,5 +277,74 @@ public class JedisDemo {
             System.out.println("result = " + s);
         });
     }
+
+    /**
+     * 存储界限 当集合对象的元素不断增加，或者某个 value 值过大，这种小对象存储也会
+     * 被升级为标准结构。Redis 规定在小对象存储结构的限制条件如下:
+     *
+     * hash-max-zipmap-entries 512 # hash 的元素个数超过 512 就必须用标准结构存储
+     * hash-max-zipmap-value 64 # hash 的任意元素的 key/value 的长度超过 64 就必须用标准结构存储
+     * list-max-ziplist-entries 512 # list 的元素个数超过 512 就必须用标准结构存储
+     * list-max-ziplist-value 64 # list 的任意元素的长度超过 64 就必须用标准结构存储
+     * zset-max-ziplist-entries 128 # zset 的元素个数超过 128 就必须用标准结构存储
+     * zset-max-ziplist-value 64 # zset 的任意元素的长度超过 64 就必须用标准结构存储
+     * set-max-intset-entries 512 # set 的整数元素个数超过 512 就必须用标准结构存储
+     */
+    @Test
+    public void  zipTest(){
+        for (int i = 0; i < 512 ; i++) {
+            jedis.hset("hello",String.valueOf(i),String.valueOf(i));
+        }
+        System.out.println(jedis.objectEncoding("hello"));
+        jedis.hset("hello",String.valueOf(512),String.valueOf(512));
+        System.out.println(jedis.objectEncoding("hello"));
+    }
+
+    /**
+     * Redis5.0 最大的新特性就是多出了一个数据结构 Stream，它是一个新的强大的支持多播的可持久化的消息队列，作者坦言 Redis Stream 狠狠地借鉴了 Kafka 的设计。
+     *
+     * @author disaster
+     * @version 1.0
+     */
+    @Test
+    public void streamTest(){
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name","disaster");
+        map.put("age","30");
+        System.out.println(jedis.xadd("codehole*", map, XAddParams.xAddParams()));
+        System.out.println(jedis.xlen("codehole*"));
+        System.out.println(jedis.xrange("codehole*","-","1655383635791-0"));
+        System.out.println(jedis.xdel("codehole*", StreamEntryID.UNRECEIVED_ENTRY));
+    }
+
+    /**
+     * info执行的使用
+     *
+     * @author disaster
+     * @version 1.0
+     */
+    @Test
+    public void infoTest(){
+        //System.out.println(jedis.info());
+        System.out.println(jedis.info("redis-cli info stats |grep ops"));//Redis 每秒执行多少次指令  redis-cli info stats |grep ops
+        System.out.println(jedis.info("redis-cli info clients"));  //Redis 连接了多少客户端  redis-cli info clients
+        System.out.println(jedis.info("redis-cli info memory | grep used | grep human")); //Redis 内存占用多大 ?  redis-cli info memory | grep used | grep human
+        System.out.println(jedis.info("redis-cli info replication |grep backlog")); //复制积压缓冲区多大？redis-cli info replication |grep backlog
+
+    }
+
+    /**
+     *  懒惰删除
+     *
+     * @author disaster
+     * @version 1.0
+     */
+    @Test
+    public void lazyFreeTest(){
+        System.out.println(jedis.keys("*"));
+        jedis.unlink("");//后台线程来异步回收内存
+        jedis.flushAll(FlushMode.ASYNC);//后台线程来异步回收内存
+    }
+
 
 }
