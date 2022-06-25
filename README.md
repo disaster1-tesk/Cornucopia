@@ -10,7 +10,15 @@
 
 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
 
+如果只想看项目的相关的书籍的请移步：
+[书籍总和]：([https://gitee.com/d__isaster/Cornucopia_Note](https://github.com/disaster1-tesk/Cornucopia_Note)
 
+
+#### gitee相关地址
+
+[gitee——项目]： (https://gitee.com/d__isaster/cornucopia)
+
+[gitee——书籍]：(https://gitee.com/d__isaster/Cornucopia_Note)
 
 #### 项目结构
 
