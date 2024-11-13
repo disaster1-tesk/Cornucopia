@@ -21,15 +21,16 @@ public class Comsumer {
                             }
 
                         }
-                , "codehole","codehole1");
+                , "codehole", "codehole1");
     }
+
     public static void receiveMsgForPattern() {
         jedis.psubscribe(new JedisPubSub() {
             @Override
             public void onMessage(String channel, String message) {
                 System.out.println(channel + ":" + message);
             }
-        },"codehole*");
+        }, "codehole*");
     }
 
     public static void main(String[] args) {

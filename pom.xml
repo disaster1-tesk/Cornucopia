@@ -2,6 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.6</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.disaster</groupId>
@@ -16,18 +21,25 @@
     </properties>
 
     <modules>
-        <module>maven-project</module>
-        <module>redis-project</module>
-        <module>mysql-project</module>
-        <module>linux-project</module>
+<!--        <module>maven-project</module>-->
+<!--        <module>redis-project</module>-->
+<!--        <module>mysql-project</module>-->
+<!--        <module>linux-project</module>-->
         <module>DatabaseStructureAndAlgorithm-project</module>
         <module>DesignPatterns-project</module>
-        <module>java-core-project</module>
-        <module>jvm-project</module>
-        <module>git-project</module>
-        <module>spring-projectt</module>
-        <module>effective-java-project</module>
-        <module>nginx-project</module>
+<!--        <module>java-core-project</module>-->
+<!--        <module>jvm-project</module>-->
+<!--        <module>git-project</module>-->
+<!--        <module>spring-project</module>-->
+<!--        <module>effective-java-project</module>-->
+<!--        <module>nginx-project</module>-->
+<!--        <module>mq-project</module>-->
+<!--        <module>sso-project</module>-->
+<!--        <module>dokcer-project</module>-->
+<!--        <module>elasticsearch-project</module>-->
+<!--        <module>springboot-project</module>-->
+        <module>Concurrency-project</module>
+        <module>classes-project</module>
     </modules>
 
 </project>

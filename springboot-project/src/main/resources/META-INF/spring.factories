@@ -1,0 +1,10 @@
+#org.springframework.boot.ApplicationContextInitializer=\
+#  com.disaster.springbootproject.listener.IApplicationContextInitializer
+#org.springframework.context.ApplicationListener=\
+#  com.disaster.springbootproject.listener.IApplicationListener
+#org.springframework.context.ICommandLineRunner=\
+#  com.disaster.springbootproject.listener.ICommandLineRunner
+#org.springframework.boot.env.EnvironmentPostProcessor=\
+#  com.disaster.springbootproject.processor.ExtendPropertyBeanPostProcessor
+
+logging.config=/src/main/resources/logs/i-just-a-nomal-log-file.log

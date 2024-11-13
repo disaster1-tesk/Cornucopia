@@ -10,16 +10,17 @@
 
 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉
 
+
 如果只想看项目相关书籍的请移步：
+[书籍总和](https://gitee.com/d__isaster/Cornucopia_Note)
 
-[书籍总和]：([https://gitee.com/d__isaster/Cornucopia_Note](https://github.com/disaster1-tesk/Cornucopia_Note)
 
+#### github相关地址
 
-#### gitee相关地址
+[github——项目](https://github.com/disaster1-tesk/Cornucopia)
 
-[gitee——项目]： (https://gitee.com/d__isaster/cornucopia)
+[github——书籍](https://github.com/disaster1-tesk/Cornucopia_Note)
 
-[gitee——书籍]：(https://gitee.com/d__isaster/Cornucopia_Note)
 
 #### 项目结构
 
@@ -53,7 +54,7 @@
 
 1. 先通过git下载此项目到本地，能看到项目结构如下图：
 
-![image-20220609110348432](https://gitee.com/d__isaster/cornucopia/raw/master/img/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.jpg)
+![image-20220609110348432](https    ://gitee.com/d__isaster/cornucopia/raw/master/img/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.jpg)
 
 2.随意打开一个项目模块，如**DatabaseStructureAndAlgorithm-project**模块，其结构如下图：
 

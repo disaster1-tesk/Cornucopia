@@ -1,0 +1,19 @@
+server:
+  port: 9091
+#rocketmq配置信息
+rocketmq:
+  #nameservice服务器地址（多个以英文逗号隔开）
+  name-server: 127.0.0.1:9876
+  #生产者配置
+  producer:
+    #组名
+    group: disaster-producer-group
+    #目的地（topic:tag）
+    #topic
+    topic: First_Topic
+    #sync tag(同步消息tag)
+    sync-tag: anran-sync-tags
+    #async tag(异步消息tag)
+    async-tag: anran-async-tags
+    #oneway tag(单向消息tag)
+    oneway-tag: anran-oneway-tags

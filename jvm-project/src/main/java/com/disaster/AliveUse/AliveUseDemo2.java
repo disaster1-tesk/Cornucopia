@@ -8,7 +8,7 @@ public class AliveUseDemo2 {
     public static void main(String[] args) {
         System.out.println(Test.NUM_1);
         try {
-            Class  clazz = Class.forName("com.disaster.AliveUse.Test");
+            Class clazz = Class.forName("com.disaster.AliveUse.Test");
             clazz.getClassLoader();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

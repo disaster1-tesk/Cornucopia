@@ -83,7 +83,7 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <db.driver>com.disaster.App</db.driver>
+        <db.driver>com.disaster.MQApplicationStarter</db.driver>
         <db.url>http://localhost:3306</db.url>
         <db.username>dev</db.username>
         <db.password>dev</db.password>
@@ -98,7 +98,7 @@
         </property>
       </activation>
       <properties>
-        <db.driver>com.disaster.App</db.driver>
+        <db.driver>com.disaster.MQApplicationStarter</db.driver>
         <db.url>http://localhost:3306</db.url>
         <db.username>test</db.username>
         <db.password>test</db.password>
@@ -115,7 +115,7 @@
         </os>
       </activation>
       <properties>
-        <db.driver>com.disaster.App</db.driver>
+        <db.driver>com.disaster.MQApplicationStarter</db.driver>
         <db.url>http://localhost:3306</db.url>
         <db.username>OS</db.username>
         <db.password>OS</db.password>
@@ -129,7 +129,7 @@
         </file>
       </activation>
       <properties>
-        <db.driver>com.disaster.App</db.driver>
+        <db.driver>com.disaster.MQApplicationStarter</db.driver>
         <db.url>http://localhost:3306</db.url>
         <db.username>file</db.username>
         <db.password>file</db.password>

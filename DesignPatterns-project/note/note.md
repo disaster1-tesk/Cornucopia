@@ -26,7 +26,7 @@
 
 ------
 
-|     Head+First设计模式(中文版)     | 链接：https://pan.baidu.com/s/194FMXtZXnsWqqNxdHwO73g?pwd=01tb <br/>提取码：01tb |
+|     重学java设计模式     | 链接：https://pan.baidu.com/s/194FMXtZXnsWqqNxdHwO73g?pwd=01tb <br/>提取码：01tb |
 | :--------------------------------: | :----------------------------------------------------------: |
 | **重构-改善既有代码的设计 中文版** | **链接：https://pan.baidu.com/s/16PtCOVWG_aom5uYDcwHiSg?pwd=3mbr <br/>提取码：3mbr** |
 |   **Head+First设计模式(中文版)**   | **链接：https://pan.baidu.com/s/1ABUGD5rrHOFqDXjMm-X4yA?pwd=cr54 <br/>提取码：cr54** |
